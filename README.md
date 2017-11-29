@@ -1,6 +1,6 @@
 # react-native-swipe-gestures
 
-React Native component for handling swipe gestures in up, down, left and right direction.
+React Native component for handling swipe gestures in left and right direction.
 
 ## Installation
 
@@ -43,15 +43,9 @@ class SomeComponent extends Component {
   }
 
   onSwipe(gestureName, gestureState) {
-    const {SWIPE_UP, SWIPE_DOWN, SWIPE_LEFT, SWIPE_RIGHT} = swipeDirections;
+    const {SWIPE_LEFT, SWIPE_RIGHT} = swipeDirections;
     this.setState({gestureName: gestureName});
     switch (gestureName) {
-      case SWIPE_UP:
-        this.setState({backgroundColor: 'red'});
-        break;
-      case SWIPE_DOWN:
-        this.setState({backgroundColor: 'green'});
-        break;
       case SWIPE_LEFT:
         this.setState({backgroundColor: 'blue'});
         break;
@@ -71,8 +65,6 @@ class SomeComponent extends Component {
     return (
       <GestureRecognizer
         onSwipe={(direction, state) => this.onSwipe(direction, state)}
-        onSwipeUp={(state) => this.onSwipeUp(state)}
-        onSwipeDown={(state) => this.onSwipeDown(state)}
         onSwipeLeft={(state) => this.onSwipeLeft(state)}
         onSwipeRight={(state) => this.onSwipeRight(state)}
         config={config}
